@@ -7,11 +7,16 @@ from conf import *
 
 class Recpt():
 	def __init__(self):
-		# mid-cpt file
-		self.recpt = pd.read_csv(RECPT_PATH, sep=',')
+		# cpt
+		# self.recpt = pd.read_csv(RECPT_PATH, sep=',')
+
+		# icd
+		self.recpt = pd.read_csv(REICD_PATH, sep=',')
+
 		# mappings for mid and cpt
 		self.mids_key = pd.read_csv(MIDS_KEY_PATH, sep=',')
-		self.cpts_key = pd.read_csv(CPTS_KEY_PATH, sep=',')
+		# self.cpts_key = pd.read_csv(CPTS_KEY_PATH, sep=',')
+		self.cpts_key = pd.read_csv(ICDS_KEY_PATH, sep=',')
 
 		self.occurances = None
 
@@ -20,8 +25,13 @@ class Recpt():
 	def meta(self):
 		# 165
 		self.n_MID = self.recpt.MID.unique().shape[0]
+
 		# 138
-		self.n_CPT = self.recpt.CPT.unique().shape[0]
+		# cpt
+		# self.n_CPT = self.recpt.CPT.unique().shape[0]
+
+		# icd
+		self.n_CPT = self.recpt.ICD.unique().shape[0]
 
 		if self.occurances is None:
 			self.occurances = np.zeros((self.n_MID, self.n_CPT))
@@ -38,7 +48,11 @@ class Recpt():
 	def populate(self):
 		# flagging all zero values as 1 for MID and CPT co-ordinates
 		for row in self.recpt.itertuples():
-			self.occurances[row.MID, row.CPT] = 1
+			# cpt
+			# self.occurances[row.MID, row.CPT] = 1
+
+			# icd
+			self.occurances[row.MID, row.ICD] = 1
 
 	def learn(self):
 		# To calculate similarity cosine matrix
