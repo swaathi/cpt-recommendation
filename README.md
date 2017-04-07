@@ -15,6 +15,6 @@ Memory-Based Collaborative Filtering approaches can be divided into two main sec
 ### Resources
 
 - http://blog.ethanrosenthal.com/2015/11/02/intro-to-collaborative-filtering/
-- http://online.cambridgecoding.com/notebooks/eWReNYcAfB/implementing-your-own-recommender-systems-in-python-2
+- http://online-dev.cambridgecoding.com/notebooks/eWReNYcAfB/implementing-your-own-recommender-systems-in-python-2
 - **Interesting Read**: https://erikbern.com/2014/06/28/recurrent-neural-networks-for-collaborative-filtering/
 - **Wiki**: https://en.wikipedia.org/wiki/Collaborative_filtering
